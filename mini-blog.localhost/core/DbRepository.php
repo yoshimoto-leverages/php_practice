@@ -11,7 +11,7 @@ abstract class DbRepository
 
 	public function setConnection($con)
 	{
-		$this->$con;
+		$this->con = $con;
 	}
 
 	public function excute($sql, $params = array())
