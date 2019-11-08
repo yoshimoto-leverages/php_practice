@@ -37,7 +37,7 @@ class View
 				)
 			));
 		}
-
+echo "ほげ";
 		return $content;
 	}
 

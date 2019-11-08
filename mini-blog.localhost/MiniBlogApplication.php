@@ -29,7 +29,7 @@ class MiniblogApplication extends Application
         $this->db_manager->connect('master', array(
             'dsn'       =>  'mysql:dbname=mini_blog;host=localhost',
             'user'      =>  'yoshimoto',
-            'password'  =>'6i3)i_G7aUd4L7r',
+            'password'  =>'pan64xiw',
         ));
     }
 }
