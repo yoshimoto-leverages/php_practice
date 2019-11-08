@@ -1,6 +1,6 @@
 <?php
 
-class AccountController extends AccountController
+class AccountController extends Controller
 {
     public function signupAction()
     {
@@ -32,7 +32,7 @@ class AccountController extends AccountController
         }else if (!preg_match('/^w{3,20}$/', $user_name)) {
             $error[] = 'ユーザIDは半角英数字及びアンダースコアを3～20文字以内で入力してください';
         }else if (!$this->db_manager->get('User')->isUniqueUserName($user_name)) {
-            $error[] = 'ユーザIDは既に登録されています'
+            $error[] = 'ユーザIDは既に登録されています';
         }
 
         if (!strlen($password)) {
@@ -55,7 +55,7 @@ class AccountController extends AccountController
             'user_name' =>  $user_name,
             'password'  =>  $password,
             'errors'    =>  $errors,
-            '_token'    =>  &$this->generateCsrfToken('account/signup'),
+            '_token'    =>  $this->generateCsrfToken('account/signup'),
         ), 'signup');
     }
 }

@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 class View
 {
@@ -31,7 +31,7 @@ class View
 		$content = ob_get_clean();
 
 		if ($_layout) {
-			$content = $this->render($_layout, 
+			$content = $this->render($_layout,
 				array_merge($this->layout_variables, array(
 					'_content' => $content,
 				)

@@ -13,7 +13,7 @@ abstract class Controller
 
 	public function __construct($application)
 	{
-		$this->controller_name = strtolower(substr(ger_class($this), 0, -10));
+		$this->controller_name = strtolower(substr(get_class($this), 0, -10));
 
 		$this->application = $application;
 		$this->request     = $application->getRequest();
@@ -24,6 +24,7 @@ abstract class Controller
 
 	public function run($action, $params = array())
 	{
+
 		$this->action_name = $action;
 
 		$action_method = $action . 'Action';
@@ -60,7 +61,7 @@ abstract class Controller
 			'session'  => $this->session,
 		);
 
-		$view = new View($this->application);
+		$view = new View($this->application->getViewDir(), $defaults);
 
 		if(is_null($template)) {
 			$template = $this->action_name;
@@ -73,7 +74,7 @@ abstract class Controller
 
 	protected function forward404()
 	{
-		throw new HttpNotFoundException('Forwaded 404 page from' .$this->controller_name.''.$this->action_name);
+		throw new HttpNotFoundException('Forwarded 404 page from ' .$this->controller_name.'/'.$this->action_name);
 	}
 
 	protected function redirect($url)
@@ -93,15 +94,15 @@ abstract class Controller
 	protected function generateCsrfToken($form_name)
 	{
 		$key = 'crsf_tokens/' . $form_name;
-		$tokens = $this->get($key, array());
+		$tokens = $this->session->get($key, array());
 		if(count($tokens) >= 10){
 			array_shift($tokens);
 		}
 
-		$token = sha1($form_name.sesshon_id() . microtine());
+		$token = sha1($form_name.session_id() . microtime());
 		$tokens[] = $token;
 
-		$this->session->sest($key, $tokens);
+		$this->session->set($key, $tokens);
 
 		return $token;
 	}
@@ -115,7 +116,7 @@ abstract class Controller
 			unset($tokens[$pos]);
 			$this->session->set($key, $token);
 
-			return ture;
+			return true;
 		}
 
 		return false;

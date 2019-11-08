@@ -9,7 +9,7 @@
  <body>
 
      <div id="header">
-        <h1><a href="<?php echo $base_url; ?>"></h1>
+        <h1><a href="<?php echo $base_url; ?>">Mini Blog</h1>
      </div>
 
      <div id="main">
