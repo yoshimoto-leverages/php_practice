@@ -2,6 +2,8 @@
 
 class AccountController extends Controller
 {
+    protected $auth_actions = array('index', 'signout');
+
     public function signupAction()
     {
         return $this->render(array(
@@ -68,6 +70,7 @@ class AccountController extends Controller
 
     public function signinAction()
     {
+        echo $this->session->isAuthenticated();
         if ($this->session->isAuthenticated()) {
             return $this->redirect('/account');
         }

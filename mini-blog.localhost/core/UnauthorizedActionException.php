@@ -1,5 +1,5 @@
-<?php 
+<?php
 
-class UnauthorizedActionException
- {}
+class UnauthorizedActionException extends Exception
+ {};
  ?>

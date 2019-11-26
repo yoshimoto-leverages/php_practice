@@ -2,6 +2,8 @@
 
 class StatusController extends Controller
 {
+    protected $auth_actions = array('index', 'post');
+
     public function indexAction()
     {
         $user = $this->session->get('user');
@@ -75,7 +77,7 @@ class StatusController extends Controller
             $this->forward404();
         }
 
-        return $dhis->render(array('status' => $status));
+        return $this->render(array('status' => $status));
     }
 }
 

@@ -1,8 +1,9 @@
 <?php
+
 require '../bootstrap.php';
 require '../MiniBlogApplication.php';
 
-$app = new MiniBlobApplication(false);
+$app = new MiniBlogApplication(false);
 $app -> run();
 
 ?>

@@ -13,6 +13,7 @@
     </ul>
     <?php endif; ?>
 
+
     <?php echo $this->render('account/inputs', array(
         'user_name' => $user_name, 'password' => $password,
     )); ?>
