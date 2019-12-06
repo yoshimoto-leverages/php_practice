@@ -2,7 +2,7 @@
 
 class StatusController extends Controller
 {
-    protected $auth_actions = array('index', 'post');
+    #protected $auth_actions = array('index', 'post');
 
     public function indexAction()
     {
@@ -40,9 +40,6 @@ class StatusController extends Controller
 
         if (count($errors) === 0) {
             $user = $this->session->get('user');
-            $this->db_manager->get('Status')->insert($user['id']);
-
-            return $this->session->get('user');
             $statuses = $this->db_manager->get('Status')->insert($user['id'], $body);
 
             return $this->redirect('/');
@@ -61,11 +58,23 @@ class StatusController extends Controller
 
     public function userAction($params)
     {
+
         $user = $this->db_manager->get('User')->fetchByUserName($user['id']);
+
+        $following = null;
+        if($this->session->isAuthenticated()){
+            $my = $this->session->get('user');
+            if($my['id'] !== $user['id']){
+                $following = $this->db_manager->get('Following')->isFollowing($my['id'], $user['id']);
+
+            }
+        }
 
         return $this->render(array(
             'user'      => $user,
             'statuses'  => $statuses,
+            'following' =>  $following,
+            '_token'    =>  $this->generateCsrfToken('account/follow'),
         ));
     }
 
