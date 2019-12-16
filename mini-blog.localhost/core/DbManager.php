@@ -2,23 +2,15 @@
 class DbManager
 {
 	protected $connections = array();
-<<<<<<< HEAD
 	protected $repository_connection_map = array();
     protected $repositories = array();
-=======
->>>>>>> cf148875bdaeb86a659d7cb7223b443e87fa41ce
 
 	public function connect($name, $params)
 	{
 		$params = array_merge(array(
 			'dsn' => null,
-<<<<<<< HEAD
 			'user' => 'yoshimoto',
 			'password' => 'pan64xiw',
-=======
-			'user' => '',
-			'password' => '',
->>>>>>> cf148875bdaeb86a659d7cb7223b443e87fa41ce
 			'options' => array(),
 		), $params);
 
@@ -52,11 +44,7 @@ class DbManager
 	public function getConnectionForRepository($repository_name)
 	{
 		if(isset($this->repository_connection_map[$repository_name])){
-<<<<<<< HEAD
 			$name = $this->repository_connection_map[$repository_name];
-=======
-			$name = $this->repository_connection_map[$rrepository_name];
->>>>>>> cf148875bdaeb86a659d7cb7223b443e87fa41ce
 			$con = $this->getConnection($name);
 		}else{
 			$con = $this->getConnection();
@@ -65,7 +53,6 @@ class DbManager
 	return $con;
 	}
 
-<<<<<<< HEAD
 	public function get($repository_name)
     {
         if (!isset($this->repositories[$repository_name])) {
@@ -91,8 +78,6 @@ class DbManager
         }
     }
 
-=======
->>>>>>> cf148875bdaeb86a659d7cb7223b443e87fa41ce
 }
 
 

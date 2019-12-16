@@ -4,29 +4,20 @@
  <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title><?php if (isset($title)): echo $this->escape($title). ' - ';
-<<<<<<< HEAD
       endif; ?>Mini Blog</title>
 
       <link rel="stylesheet" type="text/css" media="screen" href="/css/style.css" />
-=======
-        endif; ?>Mini Blog</title>
->>>>>>> cf148875bdaeb86a659d7cb7223b443e87fa41ce
  </head>
  <body>
 
      <div id="header">
-<<<<<<< HEAD
         <h1><a href="<?php echo $base_url; ?>">Mini Blog</a></h1>
-=======
-        <h1><a href="<?php echo $base_url; ?>">Mini Blog</h1>
->>>>>>> cf148875bdaeb86a659d7cb7223b443e87fa41ce
      </div>
 
      <div id="main">
         <?php echo $_content; ?>
      </div>
 
-<<<<<<< HEAD
      <div id="nav">
         <p>
             <?php if($session->isAuthenticated()): ?>
@@ -38,7 +29,5 @@
             <?php endif; ?>
          </p>
       </div>
-=======
->>>>>>> cf148875bdaeb86a659d7cb7223b443e87fa41ce
  </body>
  </html>
