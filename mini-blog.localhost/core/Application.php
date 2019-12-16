@@ -108,7 +108,11 @@ abstract class Application
 			$this->render404Page($e);
 
 		}catch(UnauthorizedActionException $e){
+<<<<<<< HEAD
 			list($controller, $action) = $this->login_action;
+=======
+			list($controller, $action) = $rhis->login_action;
+>>>>>>> cf148875bdaeb86a659d7cb7223b443e87fa41ce
 			$this->runAction($controller, $action);
 		}
 

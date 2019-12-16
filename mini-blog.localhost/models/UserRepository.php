@@ -42,6 +42,7 @@ class UserRepository extends DbRepository
 
         return false;
     }
+<<<<<<< HEAD
 
     public function fetchAllFollwingsByUserId($user_id)
     {
@@ -54,6 +55,8 @@ class UserRepository extends DbRepository
 
                 return $this->fetchAll($sql, array(':user_id' => $user_id));
     }
+=======
+>>>>>>> cf148875bdaeb86a659d7cb7223b443e87fa41ce
 }
 
 ?>

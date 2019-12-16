@@ -2,6 +2,7 @@
 
 class AccountController extends Controller
 {
+<<<<<<< HEAD
     protected $auth_actions = array('index', 'signout', 'follow');
 
     public function signupAction()
@@ -9,6 +10,13 @@ class AccountController extends Controller
         return $this->render(array(
             'user_name' => '',
             'password'  => '',
+=======
+    public function signupAction()
+    {
+        return $this->render(array(
+            #'user_name' => '',
+            #'password'  => '',
+>>>>>>> cf148875bdaeb86a659d7cb7223b443e87fa41ce
             '_token' => $this->generateCsrfToken('account/signup'),
         ));
     }
@@ -60,6 +68,7 @@ class AccountController extends Controller
             '_token'    =>  $this->generateCsrfToken('account/signup'),
         ), 'signup');
     }
+<<<<<<< HEAD
 
     public function indexAction()
     {
@@ -176,4 +185,6 @@ class AccountController extends Controller
     }
 
 
+=======
+>>>>>>> cf148875bdaeb86a659d7cb7223b443e87fa41ce
 }
